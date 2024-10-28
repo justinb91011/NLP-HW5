@@ -35,9 +35,9 @@
 # wrapped around the semantics only here (see discussion of verb
 # suffixes below).
 
-1 S[=2 sem=pres(2(1))]	NP[num=N] VP[num=N tense=pres]
-1 S[=2 sem=past(2(1))]	NP[num=N] VP[num=N tense=past]
-1 S[=2 sem=2(1)]	NP[num=N] VP[num=N tense=modal]  # already has semantics
+1 S[=2 sem=pres(2(1))]	NP[vnum=N] VP[num=N tense=pres]
+1 S[=2 sem=past(2(1))]	NP[vnum=N] VP[num=N tense=past]
+1 S[=2 sem=2(1)]	NP[vnum=N] VP[num=N tense=modal]  # already has semantics
 
 
 # A speech act is a top level sentence (plus some punctuation).
@@ -77,7 +77,7 @@
 # Some more basic rules.  CP stands for "complementizer phrase."
 
 1 CP[=2]		that S              # used for "say that ..."
-1 NP[=2 sem=1(2) num=N]	Det[num=N] N[num=N] # make an NP
+1 NP[=2 sem=1(2) vnum=V]	Det[num=N] N[num=N vnum=V] # make an NP
 1 N[=2 sem="%x Base(x) ^ New(x)"]	Adj[sem=New] N[sem=Base]
 
 1 PP[=1 sem="%x 1(2,x)"]	        P NP
@@ -194,33 +194,34 @@
 # although English does allow singular "they" as a way of referring to a human being
 # without specifying their gender.
 
-1 NP[=1 num=sing] Papa
-1 NP[=1 num=sing] Joe
-1 NP[=1 num=sing] Jill
-1 NP[=1 num=sing case=obj] her
-1 NP[=1 num=sing case=subj sem=her] she        
-1 NP[=1 num=sing case=obj] him
-1 NP[=1 num=sing case=subj sem=him] he
-1 NP[=1 num=sing case=subj] it
-1 NP[=1 num=sing case=obj] it
-1 NP[=1 num=pl case=subj] they
-1 NP[=1 num=pl case=obj head=them sem=them] them
+1 NP[=1 num=sing vnum=sing] Papa
+1 NP[=1 num=sing vnum=sing] Joe
+1 NP[=1 num=sing vnum=sing] Jill
+1 NP[=1 num=sing vnum=sing case=obj] her
+1 NP[=1 num=sing vnum=sing case=subj sem=her] she        
+1 NP[=1 num=sing vnum=sing case=obj] him
+1 NP[=1 num=sing vnum=sing case=subj sem=him] he
+1 NP[=1 num=sing vnum=sing case=subj] it
+1 NP[=1 num=sing vnum=sing case=obj] it
+1 NP[=1 num=pl vnum=pl case=subj] they
+1 NP[=1 num=pl vnum=pl case=obj head=them sem=them] them
 
 
 # For nouns, we need a little morphology to handle plurals.
 
-1 N[=1 num=pl] N[=1 num=sing] -s     # morphology
+1 N[=1 num=pl vnum=pl] N[=1 num=sing vnum=sing] -s     # morphology
 
-1 N[=1 num=sing] bonbon
-1 N[=1 num=sing] spoon
-1 N[=1 num=sing] president
-1 N[=1 num=sing] pickle
-1 N[=1 num=sing] sandwich
-1 N[=1 num=sing] floor
-1 N[=1 num=sing sem=chief_of_staff] chief of staff
-1 N[=1 num=pl sem=chief_of_staff] chiefs of staff
-1 N[=1 num=sing] man
-1 N[=1 num=sing] woman
+1 N[=1 num=sing vnum=sing] bonbon
+1 N[=1 num=sing vnum=sing] spoon
+1 N[=1 num=sing vnum=sing] president
+1 N[=1 num=sing vnum=sing] pickle
+1 N[=1 num=sing vnum=sing] sandwich
+1 N[=1 num=sing vnum=sing] floor
+1 N[=1 num=sing vnum=sing sem=chief_of_staff] chief of staff
+1 N[=1 num=pl vnum=pl sem=chief_of_staff] chiefs of staff
+1 N[=1 num=sing vnum=sing] man
+1 N[=1 num=sing vnum=sing] woman
+1 N[=1 num=mass vnum=sing] caviar  # Mass noun
 
 
 # Determiners.
@@ -237,9 +238,12 @@
 
 1 Det[=1 num=sing sem=some]      some  # same as "a"
 1 Det[=1 num=pl sem=some_plural] some  # different sem from singular some, 
-	                               #   since "some cat" != "some cats"
+        	                               #   since "some cat" != "some cats"
+1 Det[=1 num=mass sem=some_plural] some  # for mass nouns
+
 1 Det[=1 num=sing sem=the]       the   
 1 Det[=1 num=pl sem=the_plural]  the   # different semantics from singular the
+1 Det[=1 num=mass sem=the]       the   # for mass nouns
 
 # Possessive determiners are definite determiners like "the".
 # "his toy" means "the toy that belongs to him", not just
@@ -247,12 +251,22 @@
 
 1 Det[=1 num=sing sem="%n the(%x n(x)^possess(x,him))"]  his 
 1 Det[=1 num=pl   sem="%n the_plural(%x n(x)^possess(x,him))"]  his 
+1 Det[=1 num=mass sem="%n the(%x n(x)^possess(x,him))"]  his 
+
 1 Det[=1 num=sing sem="%n the(%x n(x)^possess(x,her))"]  her
 1 Det[=1 num=pl   sem="%n the_plural(%x n(x)^possess(x,her))"]  her
+1 Det[=1 num=mass sem="%n the(%x n(x)^possess(x,her))"]  her
+
 1 Det[=1 num=sing sem="%n the(%x n(x)^possess(x,it))"]   its
 1 Det[=1 num=pl   sem="%n the_plural(%x n(x)^possess(x,it))"]   its
+1 Det[=1 num=mass sem="%n the(%x n(x)^possess(x,it))"]   its
+
 1 Det[=1 num=sing sem="%n the(%x n(x)^possess(x,them))"] their 
 1 Det[=1 num=pl   sem="%n the_plural(%x n(x)^possess(x,them))"] their 
+1 Det[=1 num=mass sem="%n the(%x n(x)^possess(x,them))"] their 
+
+# Adjusted determiner for mass nouns
+1 Det[=1 num=mass sem=all]       all   # for mass nouns
 
 
 # Adjective morphology also exists ("finer", "finest", "more delicious" ...)
@@ -263,7 +277,7 @@
 1 Adj	delicious
 1 Adj	perplexed
 1 Adj	pickled
-1 Adj[=2 sem=%x{1(2)}(x)]  very Adj   # as in {very(big)}(x); equivalent to very(big,x) but parentheses clarify it
+1 Adj[=2 sem="%x {1(2)}(x)"]  very Adj   # as in {very(big)}(x); parentheses clarify it
 
 # English has lots more prepositions besides these, of course.
 

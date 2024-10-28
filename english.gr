@@ -11,10 +11,10 @@
 0.0714	VP	V Adj
 1	CP	that S
 0.0769	NP	Det N
-0.0769	N	Adj N
+0.0714	N	Adj N
 1	PP	P NP
 0.0714	VP	VP PP
-0.0769	N	N PP
+0.0714	N	N PP
 0.0714	VP	Modal VP
 0.125	Modal	will
 0.125	Modal	would
@@ -60,28 +60,29 @@
 0.154	NP	it
 0.0769	NP	they
 0.0769	NP	them
-0.0769	N	N -s
-0.0769	N	bonbon
-0.0769	N	spoon
-0.0769	N	president
-0.0769	N	pickle
-0.0769	N	sandwich
-0.0769	N	floor
-0.0769	N	chief of staff
-0.0769	N	chiefs of staff
-0.0769	N	man
-0.0769	N	woman
-0.0588	Det	a
-0.0588	Det	all
-0.0588	Det	every
-0.0588	Det	each
-0.0588	Det	two
-0.118	Det	some
-0.118	Det	the
-0.118	Det	his
-0.118	Det	her
-0.118	Det	its
-0.118	Det	their
+0.0714	N	N -s
+0.0714	N	bonbon
+0.0714	N	spoon
+0.0714	N	president
+0.0714	N	pickle
+0.0714	N	sandwich
+0.0714	N	floor
+0.0714	N	chief of staff
+0.0714	N	chiefs of staff
+0.0714	N	man
+0.0714	N	woman
+0.0714	N	caviar
+0.0417	Det	a
+0.0833	Det	all
+0.0417	Det	every
+0.0417	Det	each
+0.0417	Det	two
+0.125	Det	some
+0.125	Det	the
+0.125	Det	his
+0.125	Det	her
+0.125	Det	its
+0.125	Det	their
 0.143	Adj	fine
 0.143	Adj	blue
 0.143	Adj	delicious
