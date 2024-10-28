@@ -114,7 +114,7 @@
 1 VP[=1]		   V[arg=none]                     # intransitive verbs: "sleep"
 1 VP[=1 sem="%subj 2(%obj 1(obj,subj))"] V[arg=np] NP      # transitive verbs: "kiss Jill"
 1 VP[=1 tense=1 sem=1(2)]  V[arg=vpinf] VP[tense=inf]      # "want to eat"
-1 VP[=1 tense=1 sem="???"] V[arg=npvpinf] NP VP[tense=inf] # "want him to eat"
+1 VP[=1 tense=1 sem = "%subj [ 3(2) ^ want(subj, 3(2)) ]"] V[arg=npvpinf] NP VP[tense=inf] # "want him to eat"
 1 VP[=1 sem=1(2)]	   V[arg=cp] CP 		   # "say that ..."
 
 # Linking verbs are nice to have too.
